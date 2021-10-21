@@ -9,16 +9,54 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
-    <script src="app.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Vue Course Goals</h1>
-    </header>
-    <section id="user-goal">
-      <h2>My Course Goal</h2>
-      <p></p>
+    <section id="app">
+      <header>
+        <h1>Vue Course Goals</h1>
+      </header>
+      <h2 data-attr="demo text">My Course Goal</h2>
+      <!-- Cú pháp ria mép -->
+      <h3>Cú pháp ria mép mustate</h3>
+      <p>{{ name }} like {{ like }}, age: {{ age }}</p>
+      <p>{{ age / 2 }}</p>
+      <p>{{ students }}</p>
+      <p>{{ students[0] }}</p>
+      <p>{{ student.name }}</p>
+
+      <!-- Nó chỉ show 1 lần và ko update nữa -->
+      <h4>Demo v-once</h4>
+      <p>Name bth: {{ name }}</p>
+      <p v-once>Name sử dụng v-once: {{ name }}</p>
+      <a @click="changeName('Lan')">Bấm vào để đổi name thành Thảo</a>
+      <h4>Demo v-html</h4>
+      <div>{{ rawHtml }}</div>
+      <div v-html="rawHtml"></div>
+
+
+      <h3>Directive (Chỉ thị v-) (special attribute)</h3>
+      <p v-if="seen">Được hiển thị</p>
+      <p v-else>Không được hiển thị</p>
+
+      <a v-bind:href="link">Link</a>
+      <p class="text" v-bind:class="classPTag">demo text</p>
+      <p v-bind:class="classPTag">demo text 2</p>
+
+      <a v-on:click="doSomething">Demo Alert</a>
+
+      <h3>v-bind Shorthand</h3>>
+      <!-- <a v-bind:href="link">Link</a> -->
+      <a :href="link">Link Shorthand</a>
+      <p :class="classPTag">demo text Shorthand</p>
+
+      <!-- <a v-on:click="doSomething">Demo Alert</a> -->
+      <a href="javascript:avoid()" @click="changeData">changeData</a>
+      <p>{{ name }}</p>
+      <div>{{ students }}</div>
+      <p v-if="seen">Bạn đang thấy tôi</p>
+
     </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
   </body>
 </html>
