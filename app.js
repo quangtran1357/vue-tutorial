@@ -29,8 +29,8 @@ const app = Vue.createApp({
             this.seen = true
             this.changeName('Lan')
         },
-        showText(text) {
-            return text;
+        demoMethodReturnText() {
+            return 'Demo text'
         }
     }
 })

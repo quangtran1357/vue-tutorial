@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="user-goal" id="app2">
+      <header>
+        <h1>Vue B2</h1>
+      </header>
+      <h1>Event</h1>
+      <div class="event">
+        <p>Số đếm: {{ counter }}</p>
+        <button demo-attr="demo" @click="increment(5, $event)">increment</button>
+        <button @click="decrement($event, 5)">decrement</button>
+        <button @click="methodDemoE">methodDemoE</button>
+      </div>
+      <h1>Computed</h1>
+      <div class="computed"> 
+        <!-- Thuộc tính được tính toán -->
+        <p>Giá trị của bộ đếm là: {{ counter }}</p>
+        <p>{{ counterText }}</p>
+        <p>{{ text }}</p>
+        <p>Đảo ngược dòng text: {{ text.split('').reverse().join('') }}</p>
+        <!-- computed chạy lần 1 -->
+        <p>Đảo ngược dòng text dùng computed: {{ reverseText }}</p>
+        <!-- computed giữ nguyên kết quả -->
+        <!-- <p>Đảo ngược dòng text dùng computed: {{ reverseText }}</p> -->
+
+        <!-- method chạy lần 1 -->
+        <p>Đảo ngược dòng text dùng method: {{ reverseTextByMethod() }}</p>
+        <!-- method chạy lần 2 --> 
+        <!-- <p>Đảo ngược dòng text dùng method: {{ reverseTextByMethod() }}</p> -->
+      </div>
+      <h1>Watch</h1>
+      <div class="watch">
+        <button @click="changeDataObject">Change data Object</button>
+      </div>
+
+      <h1>Binding class and style</h1>
+      <div class="binding-class" :class="{'active': isActive, 'error': isError}">
+        Dữ liệu này đang đc show (active)
+      </div>
+      <div class="binding-class" :class="objectClass">
+        Dữ liệu này đang đc show (active)
+      </div>
+      <div :class="['binding-class', activeClass, errorClass]">
+        Dữ liệu này đang đc show (active)
+      </div>
+
+      <div :style=" { color: myColor, paddingTop: myPaddingTop + 'px' } ">
+        Dữ liệu
+      </div>
+      <div :style="objectStyle">
+        Dữ liệu
+      </div>
+      <div :style="[objectStyle, {fontSize: 30 + 'px'}]">
+        Dữ liệu
+      </div>
+      <button @click="changeActiveDiv">Change active div</button>
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app-2.js"></script>
+  </body>
+</html>
