@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="user-goal" id="app3">
+      <header>
+        <h1>Vue B3</h1>
+      </header>
+      <h1>CONDITION - IF ELSE</h1>
+      <div v-if="isShow">Show content</div>
+      <div v-else-if="conditionElseIf">Show content else if</div>
+      <div v-else>Not show content</div>
+      <div id="demoShow" v-show="isShow">Show content by v-show</div>
+
+      <h1>LIST RENDERING - FOR</h1>
+      <ul>
+          <li v-for="number in numbers">Số thứ tự là: {{ number }}</li>
+      </ul>
+      <ul>
+        <li v-for="(number, index) in numbers" :key="index">Chỉ mục (index) là: {{ index }}, có số thứ tự là: {{ number }}</li>
+      </ul>
+
+      <ul>
+        <li v-for="(student, index) in students" :key="index">Chỉ mục {{ index }}: Có tên là: {{student.name}}, sở thích: {{student.like}}</li>
+      </ul>
+      <ul>
+          <li v-for="(value, key) in objectStudent" :key="key">
+              {{key}}: {{value}}
+          </li>
+      </ul>
+      <ul>
+        <li v-for="(value, key, index) in objectStudent" :key="index">
+           Chỉ mục: {{index}}, key: {{key}} có giá trị là: {{value}}
+        </li>
+      </ul>
+
+      <h1>Form - Input</h1>
+      <!-- Ràng buộc dữ liệu 2 chiều -->
+      <!-- <input :value="inputName" @input="changeInputName" name="name" type="text" id="name" placeholder="edit my name" /> -->
+      <input v-model="inputName" name="name" type="text" id="name" placeholder="edit my name" />
+      <input v-model="inputAge" name="age" type="number" id="age" placeholder="edit my age" />
+      <textarea v-model="textarea"></textarea>
+
+      <div>
+        <label for="checkbox">Bạn có muốn chơi game ko {{checked}}</label>
+        <input v-model="checkbox" type="checkbox" id="checkbox" />
+      </div>
+      <div id="v-model-multiple-checkboxes">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+        <label for="mike">Mike</label>
+        <br />
+        <!-- <span>Checked names: {{ checkedNames }}</span> -->
+        <span v-for="(item, index) in checkedNames">{{item}},</span>
+      </div>
+
+      <div id="v-model-radiobutton">
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+        <br />
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+        <br />
+        <input type="radio" id="three" value="three" v-model="picked" />
+        <label for="two">three</label>
+        <br />
+        <input type="radio" id="four" value="four" v-model="picked" />
+        <label for="two">four</label>
+        <br />
+        <span>Picked: {{ picked }}</span>
+      </div>
+
+      <br />
+
+      <div id="v-model-select" class="demo">
+        <select v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+      </div>
+
+      <br />
+
+      <div id="v-model-multi-select" class="demo">
+        <select multiple="true" v-model="multiSelected">
+          <option disabled value="">Please select one</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+        </select>
+        <span>Selected: {{ multiSelected }}</span>
+      </div>
+      
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app-3.js"></script>
+  </body>
+</html>
